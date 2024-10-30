@@ -320,25 +320,20 @@
           "frosted-glass-theme.effect.flipEffect": {
             "type": "object",
             "default": {
-              "degree": 10,
+              "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.05 * radius : 4)",
               "transition": "var(--fgt-animation-curve)",
-              "perspective": "60cm",
-              "translateZ": 3
+              "perspective": 60
             },
             "description": "Flip effect config.",
             "properties": {
-              "degree": {
-                "type": "number"
+              "reducedDistanceFunc": {
+                "type": "string"
               },
               "transition": {
                 "type": "string"
               },
               "perspective": {
                 "type": "string"
-              },
-              "translateZ": {
-                "type": "number",
-                "description": "Max translateZ in `cm`."
               }
             }
           },

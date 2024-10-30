@@ -70,10 +70,9 @@
       }
     },
     "flipEffect": {
-      "degree": 10,
+      "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.05 * radius : 4)",
       "transition": "var(--fgt-animation-curve)",
-      "perspective": "60cm",
-      "translateZ": 3
+      "perspective": 60
     },
     "disableMenuFocusBackground": true,
     "disableForDisabledItem": false
