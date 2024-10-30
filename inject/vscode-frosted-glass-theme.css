@@ -126,18 +126,6 @@
   animation: 300ms linear 0s 1 forwards fgtFadeIn;
 }
 
-/* Menu Animation */
-.monaco-menu-container,
-.context-view {
-  overflow: clip !important;
-  overflow-clip-margin: 10px !important;
-}
-
-/* Dropdown Animation */
-.select-container > .context-view {
-  overflow-clip-margin: 0px !important;
-}
-
 /* Hover Animation */
 div[widgetid="editor.contrib.resizableContentHoverWidget"] {
   overflow: clip !important;
@@ -163,6 +151,10 @@ div[widgetid="editor.contrib.resizableContentHoverWidget"] {
   z-index: 15;
 }
 
+.pane-header {
+  flex-shrink: 0;
+}
+
 .pane-body {
   pointer-events: none;
 }
@@ -173,8 +165,7 @@ div[widgetid="editor.contrib.resizableContentHoverWidget"] {
 
 .pane-body,
 .pane-body .monaco-list > .monaco-scrollable-element {
-  overflow: clip !important;
-  overflow-clip-margin: 22px;
+  overflow: visible !important;
 }
 
 .search-view .results,

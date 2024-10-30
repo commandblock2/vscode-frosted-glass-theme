@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.8.12]
+- 798e61f: fix: use `clip-path` instead of `overflow-clip-margin`
+- 25a2b8e: fix: polyfill ClipPath
+- 0cd6c17: feat: disableFocusOutline for monaco-list
+- 9299cdd: feat: remove background in multiDiffEditor
+- 67cb40c: feat: a new algorithm for flip effect
+
 ## [0.8.10]
 - 14171e5: fix: localization doesn't correctly replace args
 - 0582e0e: fix: add back dropdown focus
