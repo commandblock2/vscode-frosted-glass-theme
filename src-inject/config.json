@@ -70,8 +70,8 @@
       }
     },
     "flipEffect": {
-      "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.05 * radius : 4)",
-      "transition": "var(--fgt-animation-curve)",
+      "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.02 * radius : 4)",
+      "transition": "30ms",
       "perspective": 60
     },
     "disableMenuFocusBackground": true,
