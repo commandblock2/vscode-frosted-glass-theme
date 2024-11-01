@@ -327,13 +327,15 @@
             "description": "Flip effect config.",
             "properties": {
               "reducedDistanceFunc": {
-                "type": "string"
+                "type": "string",
+                "description": "A function used to calculate reduced distance in px."
               },
               "transition": {
                 "type": "string"
               },
               "perspective": {
-                "type": "string"
+                "type": "number",
+                "description": "Perspective in cm."
               }
             }
           },
