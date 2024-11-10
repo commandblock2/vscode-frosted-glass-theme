@@ -9,7 +9,7 @@ function polyfillClipPath(
   if (getChromeMainVersion() >= 128)
     fgtSheet.insertRule(css`
       ${selector} {
-        clip-path: ${clipPath};
+        clip-path: ${clipPath} !important;
       }
     `);
   else
@@ -22,7 +22,7 @@ function polyfillClipPath(
 }
 
 function inset(top: number, unbound: boolean = false) {
-  return `inset(${top}px ${unbound ? "calc(-infinity * 1px) calc(-infinity * 1px))" : ""}`;
+  return `inset(${top}px ${unbound ? "calc(-infinity * 1px) calc(-infinity * 1px))" : "0px 0px"}`;
 }
 
 // Menu Animation
