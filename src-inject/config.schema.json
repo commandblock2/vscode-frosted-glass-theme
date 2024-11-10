@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "properties": {
+    "filter": {
+      "type": "object",
+      "order": 0,
+      "description": "The filter used for frosted glassed effect. Check README for detailed description.",
+      "patternProperties": {
+        ".*": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "properties": {
+            "filter": {
+              "type": "string"
+            },
+            "disableBackgroundColor": {
+              "type": "boolean"
+            },
+            "opacity": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "transition": {
+      "type": "string",
+      "order": 1,
+      "description": "CSS transition."
+    },
+    "svg": {
+      "type": "array",
+      "order": 2,
+      "description": "The svgs that load on start. No tint (ie. no element current background info).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tintSvg": {
+      "type": "array",
+      "order": 3,
+      "markdownDescription": "The tint svgs that load on start. `--fgt-current-background` indicts current element background color.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "variable": {
+      "type": "object",
+      "order": 4,
+      "description": "CSS variable. You may use them in settings and svgs.",
+      "patternProperties": {
+        ".*": {
+          "type": "string"
+        }
+      }
+    },
+    "variableDark": {
+      "type": "object",
+      "order": 5,
+      "description": "CSS variable in dark mode. You may use them in settings and svgs.",
+      "patternProperties": {
+        ".*": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalStyle": {
+      "type": "array",
+      "order": 6,
+      "description": "Additional style paths. They will be appended to <head>. You can add custom animations or styles.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "opacity": {
+      "type": "object",
+      "properties": {
+        "selection": {
+          "type": "number",
+          "description": "Menu selection opacity. This will blend into your theme color."
+        },
+        "border": {
+          "type": "number",
+          "description": "Border opacity. This will blend into your theme color."
+        },
+        "separator": {
+          "type": "number",
+          "description": "Menu separator opacity. This will blend into your theme color."
+        },
+        "minimap": {
+          "type": "number",
+          "description": "Minimap opacity."
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "description": "CSS animation. Key can also be css selector.",
+      "patternProperties": {
+        ".*": {
+          "type": "string"
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "properties": {
+        "revealEffect": {
+          "type": "object",
+          "description": "Reveal effect config.",
+          "properties": {
+            "lightColor": {
+              "type": "string"
+            },
+            "gradientSize": {
+              "type": [
+                "number",
+                "string"
+              ],
+              "description": "A number in px or a string type percentage ends with %."
+            },
+            "clickEffect": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "size": {
+                  "type": [
+                    "number",
+                    "string"
+                  ],
+                  "description": "A number in px or a string type percentage ends with %."
+                },
+                "speed": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "flipEffect": {
+          "type": "object",
+          "description": "Flip effect config.",
+          "properties": {
+            "reducedDistanceFunc": {
+              "type": "string",
+              "description": "A function used to calculate reduced distance in px."
+            },
+            "transition": {
+              "type": "string"
+            },
+            "perspective": {
+              "type": "number",
+              "description": "Perspective in cm."
+            }
+          }
+        },
+        "extendMenuFocusBackground": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Extend menu focus background. Set to false to use vanilla round corner style. Can also be set to color string as a new background color."
+        },
+        "disableForDisabledItem": {
+          "type": "boolean",
+          "description": "Disable effect for disabled menu item."
+        }
+      }
+    },
+    "borderRadius": {
+      "type": "object",
+      "description": "Border radius (with unit). Key can also be css selector.",
+      "patternProperties": {
+        ".*": {
+          "type": "string"
+        }
+      }
+    },
+    "fakeMica": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable fake mica.",
+          "order": 0
+        },
+        "url": {
+          "type": "string",
+          "markdownDescription": "Url to wallpaper. Default to windows default wallpaper. For spotlight, you can use `C:/Users/<username>/AppData/Roaming/Microsoft/Windows/Themes/CachedFiles/<Something>.jpg`.",
+          "order": 1
+        },
+        "filter": {
+          "type": "string",
+          "description": "The filter used for fake mica background.",
+          "order": 2
+        },
+        "titlebarFix": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Fix titlebar opacity."
+        },
+        "editorBackgroundFix": {
+          "type": "boolean",
+          "markdownDescription": "Fix editor overlapping background. Leave `editor-container` as the final color."
+        }
+      }
+    },
+    "miscellaneous": {
+      "type": "object",
+      "properties": {
+        "progressBarBehindSectionHeader": {
+          "type": "boolean",
+          "description": "Put progressBar behind sectionHeader so it glows behind header blur."
+        },
+        "disableFocusOutline": {
+          "type": "boolean",
+          "description": "Remove outline from focused elements."
+        }
+      }
+    }
+  }
+}

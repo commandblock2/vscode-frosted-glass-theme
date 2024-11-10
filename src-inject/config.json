@@ -1,4 +1,5 @@
 {
+  "$schema": "./config.schema.json",
   "filter": {
     "default": {
       "filter": "saturate(var(--fgt-saturate)) url(#fgt-acrylic-{key})",

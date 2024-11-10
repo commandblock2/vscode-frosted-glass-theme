@@ -91,16 +91,6 @@
           "frosted-glass-theme.filter": {
             "type": "object",
             "order": 0,
-            "default": {
-              "default": {
-                "filter": "saturate(var(--fgt-saturate)) url(#fgt-acrylic-{key})",
-                "disableBackgroundColor": true,
-                "opacity": 0.6
-              },
-              "minimap": "blur(30px)",
-              "decorationsOverviewRuler": "blur(30px)",
-              "terminalOverlay": "blur(30px)"
-            },
             "description": "The filter used for frosted glassed effect. Check README for detailed description.",
             "patternProperties": {
               ".*": {
@@ -120,39 +110,55 @@
                   }
                 }
               }
+            },
+            "default": {
+              "default": {
+                "filter": "saturate(var(--fgt-saturate)) url(#fgt-acrylic-{key})",
+                "disableBackgroundColor": true,
+                "opacity": 0.6
+              },
+              "minimap": "blur(30px)",
+              "decorationsOverviewRuler": "blur(30px)",
+              "terminalOverlay": "blur(30px)"
             }
           },
           "frosted-glass-theme.transition": {
             "type": "string",
             "order": 1,
-            "default": "300ms",
-            "description": "CSS transition."
+            "description": "CSS transition.",
+            "default": "300ms"
           },
           "frosted-glass-theme.svg": {
             "type": "array",
             "order": 2,
-            "default": [
-              "../resource/mica.svg"
-            ],
             "description": "The svgs that load on start. No tint (ie. no element current background info).",
             "items": {
               "type": "string"
-            }
+            },
+            "default": [
+              "../resource/mica.svg"
+            ]
           },
           "frosted-glass-theme.tintSvg": {
             "type": "array",
             "order": 3,
-            "default": [
-              "../resource/acrylic.svg"
-            ],
             "markdownDescription": "The tint svgs that load on start. `--fgt-current-background` indicts current element background color.",
             "items": {
               "type": "string"
-            }
+            },
+            "default": [
+              "../resource/acrylic.svg"
+            ]
           },
           "frosted-glass-theme.variable": {
             "type": "object",
             "order": 4,
+            "description": "CSS variable. You may use them in settings and svgs.",
+            "patternProperties": {
+              ".*": {
+                "type": "string"
+              }
+            },
             "default": {
               "fgt-saturate": "120%",
               "fgt-luminosity-opacity": "45%",
@@ -160,71 +166,41 @@
               "fgt-mica-brightness": "",
               "fgt-animation-curve": "300ms cubic-bezier(0, 0.8, 0.2, 1)",
               "fgt-revealEffect-lightColor": "#00000014"
-            },
-            "description": "CSS variable. You may use them in settings and svg.",
-            "patternProperties": {
-              ".*": {
-                "type": "string"
-              }
             }
           },
           "frosted-glass-theme.variableDark": {
             "type": "object",
             "order": 5,
+            "description": "CSS variable in dark mode. You may use them in settings and svgs.",
+            "patternProperties": {
+              ".*": {
+                "type": "string"
+              }
+            },
             "default": {
               "fgt-luminosity-opacity": "85%",
               "fgt-mica-luminosity": "hsl(0, 0%, 20%)",
               "fgt-mica-brightness": "brightness(30%)",
               "fgt-revealEffect-lightColor": "#ffffff14"
-            },
-            "description": "CSS variable in dark mode. You may use them in settings and svg.",
-            "patternProperties": {
-              ".*": {
-                "type": "string"
-              }
             }
           },
           "frosted-glass-theme.additionalStyle": {
             "type": "array",
             "order": 6,
-            "default": [],
             "description": "Additional style paths. They will be appended to <head>. You can add custom animations or styles.",
             "items": {
               "type": "string"
-            }
-          }
-        }
-      },
-      {
-        "title": "Opacity",
-        "properties": {
-          "frosted-glass-theme.opacity.selection": {
-            "type": "number",
-            "default": 1,
-            "description": "Menu selection opacity. This will blend into your theme color."
+            },
+            "default": []
           },
-          "frosted-glass-theme.opacity.border": {
-            "type": "number",
-            "default": 0.4,
-            "description": "Border opacity. This will blend into your theme color."
-          },
-          "frosted-glass-theme.opacity.separator": {
-            "type": "number",
-            "default": 0.7,
-            "description": "Menu separator opacity. This will blend into your theme color."
-          },
-          "frosted-glass-theme.opacity.minimap": {
-            "type": "number",
-            "default": 0.4,
-            "description": "Minimap opacity."
-          }
-        }
-      },
-      {
-        "title": "Animation",
-        "properties": {
           "frosted-glass-theme.animation": {
             "type": "object",
+            "description": "CSS animation. Key can also be css selector.",
+            "patternProperties": {
+              ".*": {
+                "type": "string"
+              }
+            },
             "default": {
               "menu": "var(--fgt-animation-curve) fgtDropdown",
               "dialog": "var(--fgt-animation-curve) fgtZoomIn",
@@ -236,21 +212,56 @@
               "menuItem": "fgt-revealEffect, fgt-flipEffect",
               "actionMenuItem": "",
               "button": "fgt-revealEffect, fgt-flipEffect",
+              "iconActionLabel": "fgt-flipEffect",
               "tab": "fgt-revealEffect, fgt-flipEffect",
               "listItem": "fgt-revealEffect, fgt-flipEffect",
               "statusbarItem": "fgt-revealEffect, fgt-flipEffect",
               "activitybarItem": "fgt-revealEffect, fgt-flipEffect",
               "compositeBarItem": "fgt-revealEffect, fgt-flipEffect",
               "commandCenter": "fgt-revealEffect",
-              "titlebarButton": "fgt-flipEffect",
-              "settingsTreeItem": "fgt-revealEffect"
-            },
-            "description": "CSS animation. Key can also be css selector.",
+              "menubarTitle": "fgt-flipEffect",
+              "settingsTreeItem": ""
+            }
+          },
+          "frosted-glass-theme.borderRadius": {
+            "type": "object",
+            "description": "Border radius (with unit). Key can also be css selector.",
             "patternProperties": {
               ".*": {
                 "type": "string"
               }
+            },
+            "default": {
+              "menu": "",
+              "menuItem": "",
+              "suggestWidget": "",
+              "tab": "6px 6px 0 0"
             }
+          }
+        }
+      },
+      {
+        "title": "Opacity",
+        "properties": {
+          "frosted-glass-theme.opacity.selection": {
+            "type": "number",
+            "description": "Menu selection opacity. This will blend into your theme color.",
+            "default": 1
+          },
+          "frosted-glass-theme.opacity.border": {
+            "type": "number",
+            "description": "Border opacity. This will blend into your theme color.",
+            "default": 0.4
+          },
+          "frosted-glass-theme.opacity.separator": {
+            "type": "number",
+            "description": "Menu separator opacity. This will blend into your theme color.",
+            "default": 0.7
+          },
+          "frosted-glass-theme.opacity.minimap": {
+            "type": "number",
+            "description": "Minimap opacity.",
+            "default": 0.4
           }
         }
       },
@@ -259,18 +270,6 @@
         "properties": {
           "frosted-glass-theme.effect.revealEffect": {
             "type": "object",
-            "default": {
-              "lightColor": "var(--fgt-revealEffect-lightColor)",
-              "gradientSize": "100%",
-              "clickEffect": {
-                "size": 40,
-                "speed": 0.8,
-                "duration": 300
-              },
-              "focusBackground": {
-                "color": "var(--fgt-revealEffect-lightColor)"
-              }
-            },
             "description": "Reveal effect config.",
             "properties": {
               "lightColor": {
@@ -304,15 +303,19 @@
                   }
                 }
               }
+            },
+            "default": {
+              "lightColor": "var(--fgt-revealEffect-lightColor)",
+              "gradientSize": "100%",
+              "clickEffect": {
+                "size": 40,
+                "speed": 0.8,
+                "duration": 300
+              }
             }
           },
           "frosted-glass-theme.effect.flipEffect": {
             "type": "object",
-            "default": {
-              "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.02 * radius : 4)",
-              "transition": "30ms",
-              "perspective": 60
-            },
             "description": "Flip effect config.",
             "properties": {
               "reducedDistanceFunc": {
@@ -326,6 +329,11 @@
                 "type": "number",
                 "description": "Perspective in cm."
               }
+            },
+            "default": {
+              "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.02 * radius : 4)",
+              "transition": "0ms",
+              "perspective": 60
             }
           },
           "frosted-glass-theme.effect.extendMenuFocusBackground": {
@@ -333,33 +341,13 @@
               "boolean",
               "string"
             ],
-            "default": "var(--fgt-revealEffect-lightColor)",
-            "description": "Extend menu focus background. Set to false to use vanilla round corner style. Can also be set to color string as new background color."
+            "description": "Extend menu focus background. Set to false to use vanilla round corner style. Can also be set to color string as a new background color.",
+            "default": "var(--fgt-revealEffect-lightColor)"
           },
           "frosted-glass-theme.effect.disableForDisabledItem": {
             "type": "boolean",
-            "default": false,
-            "description": "Disable effect for disabled menu item."
-          }
-        }
-      },
-      {
-        "title": "Border Radius",
-        "properties": {
-          "frosted-glass-theme.borderRadius": {
-            "type": "object",
-            "default": {
-              "menu": "",
-              "menuItem": "",
-              "suggestWidget": "",
-              "tab": "6px 6px 0 0"
-            },
-            "description": "Border radius (with unit). Key can also be css selector.",
-            "patternProperties": {
-              ".*": {
-                "type": "string"
-              }
-            }
+            "description": "Disable effect for disabled menu item.",
+            "default": false
           }
         }
       },
@@ -368,34 +356,34 @@
         "properties": {
           "frosted-glass-theme.fakeMica.enabled": {
             "type": "boolean",
-            "default": false,
             "description": "Enable fake mica.",
-            "order": 0
+            "order": 0,
+            "default": false
           },
           "frosted-glass-theme.fakeMica.url": {
             "type": "string",
-            "default": "C:/Windows/Web/Wallpaper/Windows/img0.jpg",
             "markdownDescription": "Url to wallpaper. Default to windows default wallpaper. For spotlight, you can use `C:/Users/<username>/AppData/Roaming/Microsoft/Windows/Themes/CachedFiles/<Something>.jpg`.",
-            "order": 1
+            "order": 1,
+            "default": "C:/Windows/Web/Wallpaper/Windows/img0.jpg"
           },
           "frosted-glass-theme.fakeMica.filter": {
             "type": "string",
-            "default": "saturate(var(--fgt-saturate)) url(#fgt-mica) var(--fgt-mica-brightness)",
             "description": "The filter used for fake mica background.",
-            "order": 2
+            "order": 2,
+            "default": "saturate(var(--fgt-saturate)) url(#fgt-mica) var(--fgt-mica-brightness)"
           },
           "frosted-glass-theme.fakeMica.titlebarFix": {
             "type": [
               "number",
               "null"
             ],
-            "default": 0.8,
-            "description": "Fix titlebar opacity."
+            "description": "Fix titlebar opacity.",
+            "default": 0.8
           },
           "frosted-glass-theme.fakeMica.editorBackgroundFix": {
             "type": "boolean",
-            "default": true,
-            "markdownDescription": "Fix editor overlapping background. Leave `editor-container` as the final color."
+            "markdownDescription": "Fix editor overlapping background. Leave `editor-container` as the final color.",
+            "default": true
           }
         }
       },
@@ -404,13 +392,13 @@
         "properties": {
           "frosted-glass-theme.miscellaneous.progressBarBehindSectionHeader": {
             "type": "boolean",
-            "default": false,
-            "description": "Put progressBar behind sectionHeader so it glows behind header blur."
+            "description": "Put progressBar behind sectionHeader so it glows behind header blur.",
+            "default": false
           },
           "frosted-glass-theme.miscellaneous.disableFocusOutline": {
             "type": "boolean",
-            "default": false,
-            "description": "Remove outline from focused elements."
+            "description": "Remove outline from focused elements.",
+            "default": false
           }
         }
       }
