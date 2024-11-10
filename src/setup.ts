@@ -88,7 +88,7 @@ async function chooseWallpaper(fgtConfig: WorkspaceConfiguration) {
 async function chooseThemeMod(fgtConfig: WorkspaceConfiguration) {
   const themeModItems = await window.showQuickPick(
     fetch(
-      "https://api.github.com/repos/RichardLuo0/vscode-frosted-glass-theme/contents/theme?ref=release"
+      "https://api.github.com/repos/RichardLuo0/vscode-frosted-glass-theme/contents/theme?ref=dev"
     )
       .then(
         async res =>
