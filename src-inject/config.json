@@ -71,7 +71,7 @@
     },
     "flipEffect": {
       "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.02 * radius : 4)",
-      "transition": "0ms",
+      "transition": "30ms",
       "perspective": 60
     },
     "extendMenuFocusBackground": "var(--fgt-revealEffect-lightColor)",
