@@ -31,6 +31,7 @@ const selectorMap = {
   menubarTitle: ".menubar-menu-title",
   settingsTreeItem:
     ".settings-tree-container .monaco-list-rows .settings-row-inner-container",
+  paneHeader: ".pane-header",
 };
 
 for (const key in animation) {

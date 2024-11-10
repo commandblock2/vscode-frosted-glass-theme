@@ -220,7 +220,8 @@
               "compositeBarItem": "fgt-revealEffect, fgt-flipEffect",
               "commandCenter": "fgt-revealEffect",
               "menubarTitle": "fgt-flipEffect",
-              "settingsTreeItem": ""
+              "settingsTreeItem": "",
+              "paneHeader": "fgt-revealEffect, fgt-flipEffect"
             }
           },
           "frosted-glass-theme.borderRadius": {
