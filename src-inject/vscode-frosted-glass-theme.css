@@ -39,13 +39,6 @@
   transition: var(--fgt-transition);
 }
 
-/* Action Bar */
-.action-label.codicon {
-  transition:
-    color var(--fgt-transition),
-    background-color var(--fgt-transition);
-}
-
 /* Command Panel */
 .quick-input-widget .monaco-list-rows {
   background-color: transparent !important;

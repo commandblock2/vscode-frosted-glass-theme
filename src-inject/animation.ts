@@ -17,6 +17,8 @@ const selectorMap = {
   actionMenuItem:
     ".monaco-menu-container ul > li > a.action-menu-item:not(.separator)",
   button: ".monaco-button",
+  iconActionLabel:
+    ":not(.activitybar, .composite-bar) > .monaco-action-bar .action-label.codicon",
   tab: ".tabs-container > .tab",
   listItem:
     ":not(.settings-tree-container, .notifications-list-container, .profile-tree) > .monaco-list .monaco-list-row",
@@ -26,7 +28,7 @@ const selectorMap = {
   compositeBarItem:
     ".pane-composite-part .composite-bar li.action-item:not(:has(> a.separator))",
   commandCenter: ".command-center-center",
-  titlebarButton: `.titlebar-container .menu-entry`,
+  menubarTitle: ".menubar-menu-title",
   settingsTreeItem:
     ".settings-tree-container .monaco-list-rows .settings-row-inner-container",
 };
