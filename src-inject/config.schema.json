@@ -198,8 +198,13 @@
         },
         "filter": {
           "type": "string",
-          "description": "The filter used for fake mica background.",
+          "description": "The filter used for background.",
           "order": 2
+        },
+        "position": {
+          "type": "string",
+          "description": "The css property used for background.",
+          "order": 3
         },
         "titlebarFix": {
           "type": [

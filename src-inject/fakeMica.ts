@@ -20,8 +20,8 @@ if (fakeMica.enabled) {
   fgtSheet.insertRule(css`
     .fgt-mica-svg-loaded::before {
       filter: ${fakeMica.filter};
-      background: url("vscode-file://vscode-app/${fakeMica.url}") center center /
-        cover no-repeat;
+      background: url("vscode-file://vscode-app/${fakeMica.url}")
+        ${fakeMica.position};
     }
   `);
 

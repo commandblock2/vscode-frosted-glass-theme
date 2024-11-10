@@ -332,7 +332,7 @@
             },
             "default": {
               "reducedDistanceFunc": "radius < 50 ? 0.1 * radius : (radius < 200 ? 0.02 * radius : 4)",
-              "transition": "0ms",
+              "transition": "30ms",
               "perspective": 60
             }
           },
@@ -368,9 +368,15 @@
           },
           "frosted-glass-theme.fakeMica.filter": {
             "type": "string",
-            "description": "The filter used for fake mica background.",
+            "description": "The filter used for background.",
             "order": 2,
             "default": "saturate(var(--fgt-saturate)) url(#fgt-mica) var(--fgt-mica-brightness)"
+          },
+          "frosted-glass-theme.fakeMica.position": {
+            "type": "string",
+            "description": "The property used for background.",
+            "order": 3,
+            "default": "center center / auto no-repeat"
           },
           "frosted-glass-theme.fakeMica.titlebarFix": {
             "type": [
