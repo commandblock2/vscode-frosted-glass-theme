@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.8.13]
+- f17f664: feat: `disableMenuFocusBackground` instead of two settings
+- dc04f07: feat: add iconActionLabel and menubarTitle in animation
+- ddbbb33: build: auto generate configuration
+- d4e1107: feat: specify image property
+
 ## [0.8.12]
 - 798e61f: fix: use `clip-path` instead of `overflow-clip-margin`
 - 25a2b8e: fix: polyfill ClipPath
