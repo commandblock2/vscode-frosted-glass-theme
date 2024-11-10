@@ -6,8 +6,12 @@ import { applyFlipEffect } from "./flipEffect";
 import { applyRevealEffect } from "./revealEffect";
 
 const {
-  effect: { disableMenuFocusBackground, disableForDisabledItem },
+  effect: { extendMenuFocusBackground, disableForDisabledItem },
 } = config;
+
+const _extendMenuFocusBackground = extendMenuFocusBackground as
+  | boolean
+  | string;
 
 const effectMap: Record<string, (e: Element) => void> = {
   "fgt-revealEffect": applyRevealEffect,
@@ -30,13 +34,21 @@ globalExport.registerEffect = (key: string, func: (e: Element) => void) => {
   `);
 };
 
-if (disableMenuFocusBackground)
+if (_extendMenuFocusBackground) {
   fgtSheet.insertRule(css`
     .monaco-menu-container ul.actions-container > li > a.action-menu-item {
       background-color: transparent !important;
       outline: none !important;
     }
   `);
+  fgtSheet.insertRule(css`
+    .monaco-menu-container ul.actions-container .action-item.focused {
+      background-color: ${_extendMenuFocusBackground === true
+        ? "var(--vscode-menu-selectionBackground)"
+        : _extendMenuFocusBackground};
+    }
+  `);
+}
 
 export function applyEffect(element: HTMLElement | ShadowRoot) {
   element.addEventListener("animationstart", (e: Event | AnimationEvent) => {

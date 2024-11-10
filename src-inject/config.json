@@ -46,6 +46,7 @@
     "notificationCenterHeader": "fgt-revealEffect",
     "notification": "",
     "menuItem": "fgt-revealEffect, fgt-flipEffect",
+    "actionMenuItem": "",
     "button": "fgt-revealEffect, fgt-flipEffect",
     "tab": "fgt-revealEffect, fgt-flipEffect",
     "listItem": "fgt-revealEffect, fgt-flipEffect",
@@ -64,9 +65,6 @@
         "size": 40,
         "speed": 0.8,
         "duration": 300
-      },
-      "focusBackground": {
-        "color": "var(--fgt-revealEffect-lightColor)"
       }
     },
     "flipEffect": {
@@ -74,7 +72,7 @@
       "transition": "30ms",
       "perspective": 60
     },
-    "disableMenuFocusBackground": true,
+    "extendMenuFocusBackground": "var(--fgt-revealEffect-lightColor)",
     "disableForDisabledItem": false
   },
   "borderRadius": {

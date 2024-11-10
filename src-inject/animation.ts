@@ -12,7 +12,10 @@ const selectorMap = {
   notificationCenter: ".notifications-center, .notification-toast",
   notificationCenterHeader: ".notifications-center-header",
   notification: ".notifications-list-container .monaco-list-row",
-  menuItem: ".monaco-menu-container li.action-item:not(:has(> a.separator))",
+  menuItem:
+    ".monaco-menu-container ul > li.action-item:not(:has(> a.separator))",
+  actionMenuItem:
+    ".monaco-menu-container ul > li > a.action-menu-item:not(.separator)",
   button: ".monaco-button",
   tab: ".tabs-container > .tab",
   listItem:
