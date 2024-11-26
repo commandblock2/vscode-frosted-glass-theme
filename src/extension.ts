@@ -8,9 +8,9 @@ import { setup as setupFunc } from "./setup";
 import { showChoiceMessage } from "./utils";
 
 export function activate(context: ExtensionContext) {
-  const jsFile = new File(
-    context.asAbsolutePath("inject/vscode-frosted-glass-theme.js")
-  );
+  const jsPath = "inject/vscode-frosted-glass-theme.js";
+  const cssPath = "inject/vscode-frosted-glass-theme.css";
+  const jsFile = new File(context.asAbsolutePath(jsPath));
   const injection = new Injection([jsFile]);
 
   const currentVersion: string =
@@ -106,19 +106,13 @@ export function activate(context: ExtensionContext) {
 
   const openCSS = commands.registerCommand("frosted-glass-theme.openCSS", () =>
     workspace
-      .openTextDocument(
-        Uri.parse(
-          new File(
-            context.asAbsolutePath("inject/vscode-frosted-glass-theme.css")
-          ).path
-        )
-      )
+      .openTextDocument(Uri.joinPath(context.extensionUri, cssPath))
       .then(window.showTextDocument)
   );
 
   const openJS = commands.registerCommand("frosted-glass-theme.openJS", () =>
     workspace
-      .openTextDocument(Uri.parse(jsFile.path))
+      .openTextDocument(Uri.joinPath(context.extensionUri, jsPath))
       .then(window.showTextDocument)
   );
 

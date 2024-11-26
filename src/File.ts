@@ -9,7 +9,7 @@ export default class File {
 
     loadContent() {
       if (this.content === null)
-        this.content = fs.readFileSync(this.file._path, "utf-8");
+        this.content = fs.readFileSync(this.file.path, "utf-8");
       return this;
     }
 
@@ -31,22 +31,18 @@ export default class File {
 
     apply() {
       if (this.content !== null)
-        fs.writeFileSync(this.file._path, this.content, "utf-8");
+        fs.writeFileSync(this.file.path, this.content, "utf-8");
       this.content = null;
     }
   };
 
-  private _path: string;
+  public readonly path: string;
 
   constructor(path: string) {
-    this._path = resolve(path);
+    this.path = resolve(path);
   }
 
   editor() {
     return new File.editor(this);
-  }
-
-  public get path(): string {
-    return "file:///" + this._path;
   }
 }
